@@ -13,9 +13,21 @@ ln -s /root/go/bin/gobuster /usr/local/bin/gobuster
 # 3. Installation de Recon-ng
 echo "[*] Installation de Recon-ng..."
 git clone https://github.com/lanmaster53/recon-ng.git /opt/recon-ng
-pip3 install -r /opt/recon-ng/REQUIREMENTS
-ln -s /opt/recon-ng/recon-ng /usr/local/bin/recon-ng
+echo "Création de l'environnement virtuel..."
+python3 -m venv /opt/recon-ng-venv
+echo "Installation des dépendances Python..."
+/opt/recon-ng-venv/bin/pip install --upgrade pip
+/opt/recon-ng-venv/bin/pip install -r /opt/recon-ng/REQUIREMENTS
+echo "Création du wrapper recon-ng..."
+cat << 'EOF' > /usr/local/bin/recon-ng
+#!/bin/sh
+# Activer l'environnement virtuel et exécuter recon-ng
+source /opt/recon-ng-venv/bin/activate
+cd /opt/recon-ng
+python3 /opt/recon-ng/recon-ng "$@"
+EOF
 chmod +x /usr/local/bin/recon-ng
+
 # 4. Installation de Metasploit Framework (manuel car Alpine ne l’inclut pas facilement)
 echo "[*] Installation de Metasploit (cela peut prendre un moment)..."
 gem install bundler
