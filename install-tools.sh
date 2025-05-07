@@ -28,14 +28,5 @@ python3 /opt/recon-ng/recon-ng "$@"
 EOF
 chmod +x /usr/local/bin/recon-ng
 
-# 4. Installation de Metasploit Framework (manuel car Alpine ne l’inclut pas facilement)
-echo "[*] Installation de Metasploit (cela peut prendre un moment)..."
-gem install bundler
-git clone https://github.com/rapid7/metasploit-framework.git /opt/metasploit
-cd /opt/metasploit
-bundle config set --local without 'development test'
-bundle install
-ln -s /opt/metasploit/msfconsole /usr/local/bin/msfconsole
-ln -s /opt/metasploit/msfvenom /usr/local/bin/msfvenom
-chmod +x /usr/local/bin/msfconsole /usr/local/bin/msfvenom
-echo "[*] Installation terminée. Teste les outils avec : nikto, gobuster, recon-ng, msfconsole"
+
+echo "[*] Installation terminée. Teste les outils avec : nikto, gobuster, recon-ng"
