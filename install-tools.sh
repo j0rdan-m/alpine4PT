@@ -28,5 +28,8 @@ python3 /opt/recon-ng/recon-ng "$@"
 EOF
 chmod +x /usr/local/bin/recon-ng
 
+# 4. Installation de nmap
+echo "[*] Installation de nmap..."
+apk add nmap
 
-echo "[*] Installation terminée. Teste les outils avec : nikto, gobuster, recon-ng"
+echo "[*] Installation terminée. Teste les outils avec : nikto, gobuster, recon-ng, nmap"
