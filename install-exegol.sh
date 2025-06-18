@@ -6,6 +6,7 @@ python3 -m venv /venv/
 python3 -m pip install pipx
 python3 -m pipx ensurepath
 pipx install exegol
+echo "alias exegol='sudo -E $(echo ~/.local/bin/exegol)'" >> ~/.bash_aliases && source ~/.bash_aliases
 pipx ensurepath
 exec $SHELL
 exegol install
