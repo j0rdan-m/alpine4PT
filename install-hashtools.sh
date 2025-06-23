@@ -83,19 +83,6 @@ ln -s /opt/jwt_tool/jwt_tool.py /usr/local/bin/jwt_tool
 chmod +x /usr/local/bin/jwt_tool
 echo "[+] JWT Tool installé avec succès"
 
-# 8. Téléchargement des dictionnaires
-echo "[*] Téléchargement et installation des dictionnaires..."
-mkdir -p /usr/share/wordlists
-
-# RockYou
-echo "[*] Téléchargement de rockyou.txt..."
-wget -O /usr/share/wordlists/rockyou.txt.gz https://github.com/praetorian-inc/Hob0Rules/raw/master/wordlists/rockyou.txt.gz
-gunzip /usr/share/wordlists/rockyou.txt.gz
-
-# SecLists
-echo "[*] Téléchargement de SecLists..."
-git clone https://github.com/danielmiessler/SecLists.git /usr/share/wordlists/SecLists
-
 # Hash-identifier
 echo "[*] Installation de hash-identifier..."
 apk add --no-cache python3
@@ -146,10 +133,6 @@ Outils de décryptage pour CTF installés :
    
 9. Hashid - Identification du type de hash (alternative)
    Usage: hashid [hash]
-
-Dictionnaires installés :
-- rockyou.txt: /usr/share/wordlists/rockyou.txt
-- SecLists: /usr/share/wordlists/SecLists
 
 Pour plus d'informations sur les options de chaque outil, utilisez le paramètre --help.
 EOF
