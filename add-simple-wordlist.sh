@@ -6,6 +6,10 @@ cd wordlist
 
 echo "[+] Téléchargement des wordlists de mots de passe..."
 
+# RockYou.txt
+wget -O rockyou.txt https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
+
+
 # Dictionnaire de mots de passe courants (SecLists)
 wget -O passwords-common.txt https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-1000.txt
 
